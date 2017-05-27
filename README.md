@@ -7,6 +7,14 @@
 compile 'com.sheaye:click-filter:1.0.0'
 ```
 
+## 2. 在Activity、Fragment、Adapter等中的使用：
+使用都大同小异：
+先bind：使用```ClickFilter.bind(Activity target);```或者```ClickFilter.bind(Object target, View view);```;
+然后使用@BindClick修饰处理点击事件的方法
+```
+
+```
+
 ## 2.1 在Activity中使用
 1. 在你的基类Activity中执行ClickFilter.bind(this);例如：
 ```
@@ -65,7 +73,7 @@ public class MainFragment extends BasicFragment {
 }
 ```
 
-## 在Adapter中使用，这里以ListView中设置ViewHolder为例：
+## 在Adapter中使用，这里以ListView的Adapter中设置ViewHolder为例：
 ```
 static class ViewHolder{
     Button mButton1;

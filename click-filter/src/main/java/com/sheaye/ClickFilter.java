@@ -19,7 +19,7 @@ public class ClickFilter {
     public static final String SUFFIX = "$$ClickBinder";
     static final Map<Class<?>, ClickBinder<Object>> BINDERS = new LinkedHashMap<>();
 
-    private static int intervalMillis = 4000;
+    private static int intervalMillis = 2000;
     private static int oldResId = 0;
     private static long oldTimeMillis = 0L;
     private static int oldSourceHashCode = 0;

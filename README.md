@@ -1,5 +1,5 @@
 # ClickFilter
-参考butterknife原理制作的屏蔽同一控件频繁点击事件的注解处理器
+参照butterknife原理制作的屏蔽同一控件频繁点击事件的注解处理器
 
 # 使用
 ## 1. 在app的build.gradle中添加依赖
@@ -68,20 +68,20 @@ public class MainFragment extends BasicFragment {
 ## 在Adapter中使用，这里以ListView中设置ViewHolder为例：
 ```
 static class ViewHolder{
-        Button mButton1;
-        Button mButton2;
+    Button mButton1;
+    Button mButton2;
 
-        ViewHolder(View itemView) {
-            ClickFilter.bind(this,itemView);
-            mButton1 = (Button) itemView.findViewById(R.id.item_button1);
-            mButton2 = (Button) itemView.findViewById(R.id.item_button2);
-        }
-
-        @BindClick({R.id.item_button1, R.id.item_button2})
-        public void onClick(View view){
-            Toast.makeText(view.getContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
-        }
+    ViewHolder(View itemView) {
+        ClickFilter.bind(this,itemView);
+        mButton1 = (Button) itemView.findViewById(R.id.item_button1);
+        mButton2 = (Button) itemView.findViewById(R.id.item_button2);
     }
+
+    @BindClick({R.id.item_button1, R.id.item_button2})
+    public void onClick(View view){
+        Toast.makeText(view.getContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+    }
+}
 ```
 更详细的使用，请参照sample
 

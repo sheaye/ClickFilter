@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'com.novoda.bintray-release'
 
 def logger = new com.android.build.gradle.internal.LoggerWrapper(project.logger)
 def sdkHandler = new com.android.build.gradle.internal.SdkHandler(project, logger)
@@ -17,3 +18,18 @@ dependencies {
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+def prop = new Properties()
+prop.load(file('../local.properties').newDataInputStream())
+
+publish {
+    userOrg = 'sheaye'//bintray用户名
+    groupId = 'com.sheaye'// jcener上的路径
+    artifactId = 'click-filter'//项目名
+    publishVersion = '1.0.0'//版本号
+    desc = '屏蔽频繁点击事件的注解处理器'//项目描述
+    website = 'https://github.com/sheaye/ClickFilter'//项目网址，建议github开源库网址
+    bintrayUser = 'sheaye'//你的bintray的用户名
+    dryRun = false
+    bintrayKey = prop.getProperty("BINTRAY_KEY")
+}
